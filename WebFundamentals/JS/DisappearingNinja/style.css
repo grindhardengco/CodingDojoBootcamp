@@ -1,0 +1,23 @@
+*{
+    border: 0;
+    padding: 0;
+}
+
+#container{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+}
+
+img{
+    padding: 10px;
+    margin: 10px;
+    border: 1px dotted gray;
+}
+
+button{
+    padding: 20px;
+    background-color:limegreen;
+    border-radius: 5px;
+    margin: 20px;
+}
