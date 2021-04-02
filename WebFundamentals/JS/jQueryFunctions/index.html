@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>$(document).ready(function(){
+        $('#addclass button').click(function(){
+            $('#addclass p').addClass("red");
+        })
+
+        $('#slideToggle button').click(function(){
+            $('#slideToggle img').slideToggle("slow");
+        })
+
+        $('#append button').click(function(){
+            $('#append p').append('<p>this is an appended paragraph</p>');
+        })
+
+        $('#show button').click(function(){
+            $('#show img').show();
+        })
+
+        $('#toggle button').click(function(){
+            $('#toggle img').toggle();
+        })
+
+        $('#slideUp button').click(function(){
+            $('#slideUp img').slideUp("slow");
+        })
+
+        $('#slideDown button').click(function(){
+            $('#slideDown img').slideDown("slow");
+        })
+
+        $('#fadeIn button').click(function(){
+            $('#fadeIn img').fadeIn("slow");
+        })
+       
+        $('#fadeOut button').click(function(){
+            $('#fadeOut img').fadeOut("slow");
+        })
+
+        $('#before button').click(function(){
+            $('#before p').before("<p>This paragraph is now inserted before the original.</p>");
+        })
+
+        $('#after button').click(function(){
+            $('#after p').after("<p>This paragraph is now inserted after the original.</p>");
+        })
+
+    });
+    </script>
+</head>
+
+<body>
+    <div id="container">
+
+        <div id="after" class="bar">
+            <button>After</button>
+            <div id="text">
+                <h1>After</h1>
+                <p>Click the button to insert a paragraph after.</p>
+            </div>
+        </div>
+        
+        <div id="before" class="bar">
+            <button>Before</button>
+            <div id="text">
+                <h1>Before</h1>
+                <p>Click the button to insert a paragraph before.</p>
+            </div>
+        </div>
+        
+        <div id="fadeOut" class="bar">
+            <button>Fade Out</button>
+            <div id="text">
+                <h1>Fade Out</h1>
+                <p>Click the button to fade out a picture</p>
+                <img src="frog-green.svg" alt="frog">
+            </div>
+        </div>
+        
+        <div id="fadeIn" class="bar">
+            <button>Fade In</button>
+            <div id="text">
+                <h1>Fade In</h1>
+                <p>Click the button to fade in a picture</p>
+                <img src="frog-green.svg" alt="frog">
+            </div>
+        </div>
+
+        <div id="addclass" class="bar">
+            <button>AddClass</button>
+            <div id="text">
+                <h1>Add Class</h1>
+                <p>Click the button to add class 'red' to this paragraph</p>
+            </div>
+        </div>
+
+        <div id="slideToggle" class="bar">
+            <button>Slide Toggle</button>
+            <div id="text">
+                <h1>Slide Toggle</h1>
+                <p>Click the button to slide toggle an image</p>
+                <img src="frog-green.svg" alt="frog">
+            </div>
+        </div>
+
+        <div id="append" class="bar">
+            <button>Append</button>
+            <div id="text">
+                <h1>Append</h1>
+                <p>Click the button to append a new paragraph</p>
+            </div>
+        </div>
+
+        <div id="show" class="bar">
+            <button>Show</button>
+            <div id="text">
+                <h1>Show</h1>
+                <p>Click the button to show a picture</p>
+                <img src="frog-green.svg" alt="frog">
+            </div>
+        </div>
+
+        <div id="toggle" class="bar">
+            <button>Toggle</button>
+            <div id="text">
+                <h1>Toggle</h1>
+                <p>Click the button to toggle a picture</p>
+                <img src="frog-green.svg" alt="frog">
+            </div>
+        </div>
+
+        <div id="slideUp" class="bar">
+            <button>Slide Up</button>
+            <div id="text">
+                <h1>Slide Up</h1>
+                <p>Click the button to Slide Up a picture</p>
+                <img src="frog-green.svg" alt="frog">
+            </div>
+        </div>
+
+        <div id="slideDown" class="bar">
+            <button>Slide Down</button>
+            <div id="text">
+                <h1>Slide Down</h1>
+                <p>Click the button to Slide Down a picture</p>
+                <img src="frog-green.svg" alt="frog">
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+*{
+    margin: 0;
+    padding: 0;
+    /* border: 1px dotted red; */
+}
+
+#container{
+    margin: 10px;
+    background-color: silver;
+    padding: 10px;
+}
+
+.bar{
+    border-bottom: 5px solid black;
+    padding: 20px;
+    background-color: white;
+    display: flex;
+}
+
+button{
+    padding: 20px;
+    border-radius: 5px;
+    background-color: tomato;
+    margin-right: 50px;
+}
+
+p{
+    padding: 10px;
+}
+
+.red{
+    color: red;
+    font-weight: bold;
+}
+
+img{
+    display: none;
+}
+
+#slideUp img, #fadeOut img{
+    display: inline;
+}
