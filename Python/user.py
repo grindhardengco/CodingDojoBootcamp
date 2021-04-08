@@ -18,14 +18,12 @@ class User:
     #     ???.account_balance += amount
 
 chris = User("Chris Arnold", "chris@burrito.com")
-brandon = User("Brandon Hudson", "brandon@burrito.com")
+brandon = User("Brandon Hudson", "brandon@burrito.com")=
 brodie = User("Brodie Savage", "brodie@burrito.com")
 
 chris.make_deposit(100)
 brandon.make_deposit(200)
-brodie.make_deposit(300)
-
-brodie.make_withdrawal(50)
+brodie.make_deposit(300).make_withdrawal(50)
 
 chris.display_user_balance()
 brandon.display_user_balance()
