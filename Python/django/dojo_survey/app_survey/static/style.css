@@ -1,0 +1,31 @@
+*{
+    padding: 0;
+    margin: 0;
+    /* border: 1px dotted red; */
+}
+
+#container{
+    width: 450px;
+    margin: 0 auto;
+}
+
+form{
+    padding: 40px 0px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#comments{
+    padding: 20px 0px;
+}
+
+.row{
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 40px;
+}
+
+#button{
+    text-align: right;
+}
