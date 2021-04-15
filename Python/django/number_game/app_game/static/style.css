@@ -1,0 +1,49 @@
+*{
+    margin: 0;
+    padding: 0;
+    /* border: 1px dotted red; */
+}
+
+#container{
+    width: 650px;
+    text-align: center;
+    margin: auto;
+    padding: 100px;
+}
+
+h1{
+    padding: 20px;
+}
+
+h3{
+    padding: 5px;
+}
+
+#wrong{
+    margin: auto;
+    width: 300px;
+    background-color: red;
+    font-size: 20px;
+    padding: 100px 0px;
+}
+
+#correct{
+    margin: auto;
+    width: 300px;
+    background-color: green;
+    font-size: 20px;
+    padding: 100px 0px;
+}
+
+
+input{
+    display: block;
+    margin: 20px auto;
+    padding: 10px;
+}
+
+button{
+    margin: 20px auto;
+    padding: 10px;
+}
+
