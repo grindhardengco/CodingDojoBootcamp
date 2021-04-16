@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {%load static%}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+</head>
+<body>
+    <div id="container">
+        <h2>All the Users</h2>
+        <table class="table table-striped">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Age</th>
+            </tr>
+            {%for user in all_users%}
+                <tr>
+                    <td>{{user.id}}</td>
+                    <td>{{user.first_name}} {{user.last_name}}</td>
+                    <td>{{user.email_address}}</td>
+                    <td>{{user.age}}</td>
+                </tr>
+            {%endfor%}
+        </table>
+
+        <h2>Add a User</h2>
+        <div id="add">
+            <form action="/add_user" method="POST">
+            {%csrf_token%}
+                Firt Name <input type="text" name="first_name">
+                Last Name <input type="text" name="last_name">
+                <br>
+                Email <input type="text" name="email_address">
+                Age <input type="text" name="age">
+                <br>
+                <a href="/add_user"><button>Add</button></a>
+            </form>
+        </div> 
+    </div>
+    
+</body>
+</html>

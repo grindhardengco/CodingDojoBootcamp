@@ -1,0 +1,94 @@
+>>> from users_app.models import User
+>>> User.objects.create(first_name = "Yo", last_name = "Momma", email_address =
+"y_momma@ymail.com", age = 1000)
+<User: User object (1)>
+>>> User.objects.all
+<bound method BaseManager.all of <django.db.models.manager.Manager object at 0x0
+00002642726BF40>>
+>>> User.objects.all()
+<QuerySet [<User: User object (1)>]>
+>>> User.objects.all().values()
+<QuerySet [{'id': 1, 'first_name': 'Yo', 'last_name': 'Momma', 'email_address':
+'y_momma@ymail.com', 'age': 1000, 'created_at': datetime.datetime(2021, 4, 16, 1
+, 49, 21, 611806, tzinfo=<UTC>), 'updated_at': datetime.datetime(2021, 4, 16, 1,
+ 49, 21, 611806, tzinfo=<UTC>)}]>
+>>> User.objects.create(first_name = "Monty", last_name = "Python", email_addres
+s = "monty@flyingcircus.com", age = 60)
+<User: User object (2)>
+>>> User.objects.create(first_name = "Black", last_name = "Adder", email_address
+ = "rowan@bean.com", age 66)
+  File "<console>", line 1
+    User.objects.create(first_name = "Black", last_name = "Adder", email_address
+ = "rowan@bean.com", age 66)
+
+                         ^
+SyntaxError: positional argument follows keyword argument
+>>> User.objects.create(first_name = "Black", last_name = "Adder", email_address
+ = "rowan@bean.com", age = 66)
+<User: User object (3)>
+>>> User.objects.all()
+<QuerySet [<User: User object (1)>, <User: User object (2)>, <User: User object
+(3)>]>
+>>> User.objects.last().value()
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: 'User' object has no attribute 'value'
+>>> User.objects.last().values()
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: 'User' object has no attribute 'values'
+>>> User.objects.last()
+<User: User object (3)>
+>>> User.objects.last().values()
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: 'User' object has no attribute 'values'
+>>> User.objects.all().values()
+<QuerySet [{'id': 1, 'first_name': 'Yo', 'last_name': 'Momma', 'email_address':
+'y_momma@ymail.com', 'age': 1000, 'created_at': datetime.datetime(2021, 4, 16, 1
+, 49, 21, 611806, tzinfo=<UTC>), 'updated_at': datetime.datetime(2021, 4, 16, 1,
+ 49, 21, 611806, tzinfo=<UTC>)}, {'id': 2, 'first_name': 'Monty', 'last_name': '
+Python', 'email_address': 'monty@flyingcircus.com', 'age': 60, 'created_at': dat
+etime.datetime(2021, 4, 16, 1, 51, 24, 875901, tzinfo=<UTC>), 'updated_at': date
+time.datetime(2021, 4, 16, 1, 51, 24, 875901, tzinfo=<UTC>)}, {'id': 3, 'first_n
+ame': 'Black', 'last_name': 'Adder', 'email_address': 'rowan@bean.com', 'age': 6
+6, 'created_at': datetime.datetime(2021, 4, 16, 1, 54, 11, 37844, tzinfo=<UTC>),
+ 'updated_at': datetime.datetime(2021, 4, 16, 1, 54, 11, 37844, tzinfo=<UTC>)}]>
+
+>>> User.objects.first()
+<User: User object (1)>
+>>> User.objects.first().value()
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: 'User' object has no attribute 'value'
+>>> User.objects.first().values()
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: 'User' object has no attribute 'values'
+>>> temp=User.objects.get(id=3)
+>>> temp
+<User: User object (3)>
+>>> temp.last_name = Pancakces
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+NameError: name 'Pancakces' is not defined
+>>> temp.last_name = "Pancakes"
+>>> temp.values()
+Traceback (most recent call last):
+  File "<console>", line 1, in <module>
+AttributeError: 'User' object has no attribute 'values'
+>>> temp.__dict__
+{'_state': <django.db.models.base.ModelState object at 0x0000026427210460>, 'id'
+: 3, 'first_name': 'Black', 'last_name': 'Pancakes', 'email_address': 'rowan@bea
+n.com', 'age': 66, 'created_at': datetime.datetime(2021, 4, 16, 1, 54, 11, 37844
+, tzinfo=<UTC>), 'updated_at': datetime.datetime(2021, 4, 16, 1, 54, 11, 37844,
+tzinfo=<UTC>)}
+>>> temp.save()
+>>> temp = User.objects.get(id=2)
+>>> temp
+<User: User object (2)>
+>>> temp.delete()
+(1, {'users_app.User': 1})
+>>> User.objects.all().order_by("first_name")
+<QuerySet [<User: User object (3)>, <User: User object (1)>]>
+>>>

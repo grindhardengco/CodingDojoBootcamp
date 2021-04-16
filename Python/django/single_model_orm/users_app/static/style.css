@@ -1,0 +1,15 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#container{
+    width: 970px;
+    margin: auto;
+    text-align: center;
+}
+
+#add{
+    width: 600px;
+    margin: auto;
+}
