@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+    padding: 0;
+    /* border: 1px dotted red; */
+    text-align: justify;
+}
+
+#container{
+    margin: auto;
+    width: 970px;
+}
+
+#inputs{
+    display: flex;
+    justify-content: center;
+}
+
+.input{
+    padding: 20px;
+}
+
+.input input, select{
+    margin: 5px;
+}
+
+#list{
+    margin: auto;
+    width: 300px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}

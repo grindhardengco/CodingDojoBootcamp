@@ -206,26 +206,37 @@ class SinglyLinkedList {
     }
     //This is incomplete... need to add edge cases, troubleshoot MaxToBack, and add console.log of this.head.value & this.tail.value
 
+    secondToLastValue() {
+        var runner = this.head;
+        if (this.head == this.tail || this.head == null){
+            return undefined;
+        }
+        while (runner.next.next != null) {
+            runner = runner.next;
+        }
+        return runner.value;
+    }
 
+    partition(target) {
+        
+
+    }
 
 }
 
 var new_SLL = new SinglyLinkedList();
 
 new_SLL.addToBack(7);
-new_SLL.addToBack(3);
+new_SLL.addToBack(4);
 new_SLL.addToFront(2);
 new_SLL.addToFront(21);
 new_SLL.addToFront(3);
 new_SLL.addToBack(7897);
 console.log(new_SLL.display());
-new_SLL.moveMinToFront();
-new_SLL.moveMaxToBack();
-console.log(new_SLL.display());
 // new_SLL.removeFront();
 // new_SLL.removeBack();
 // console.log(new_SLL.display());
-
+console.log(new_SLL.secondToLastValue());
 
  // removeFront() - remove the head of the linked list and return its value
     // that means that this.head is going to change as well
