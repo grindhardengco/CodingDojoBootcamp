@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {%load static%}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+</head>
+<body>
+    <div id="container">
+        
+        <div class="add">
+            <h2>Add an Author</h2>
+            <form action="/add_author" method="POST">
+            {%csrf_token%}
+                First Name <input type="text" name="first_name">
+                Last Name <input type="text" name="last_name">
+                Notes <input type="text" name="notes">
+                <a href="/add_author"><button>Add</button></a>
+            </form>
+        </div>
+
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>TitleName</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {%for author in all_authors%}
+                <tr>
+                    <td>{{author.id}}</td>
+                    <td>{{author.first_name}} {{author.last_name}}</td>
+                    <td><a href="/authors/{{author.id}}">View</a></td>
+                </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+
+    </div>
+</body>
+</html>

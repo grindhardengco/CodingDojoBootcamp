@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+    /* border: 1px dotted red; */
+}
+
+#container{
+    /* width: 970px; */
+    margin: auto;
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+}
+
+    #desc{
+        display: flex;
+    }
+
+    #desc p{
+        margin: 10px;
+    }
+
+    /* ul{
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        text-align: justify;
+        width: 100px;
+        border: 2px dotted green;
+    }
+ */
+    form{
+        display: flex;
+        flex-direction: column;
+        width: 300px;
+    }
+
+        a{
+            margin: 10px;
+        }

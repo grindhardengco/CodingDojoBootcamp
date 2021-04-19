@@ -1,0 +1,33 @@
+*{
+    margin: 0;
+    padding: 0;
+    /* border: 1px dotted red; */
+}
+
+#container{
+    /* width: 970px; */
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 60px;
+}
+
+.add{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin-right: 20px;
+}
+
+    form{
+        display: flex;
+        flex-direction: column;
+    }
+
+        a{
+            margin: 10px;
+        }
+
+table{
+    width: 300px !important;
+}
