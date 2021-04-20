@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {%load static%}
+    <link rel="stylesheet" href="{%static 'style.css'%}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+</head>
+<body>
+    <div id="container">
+        <h2>Edit Show {{show.id}}</h2>
+        <a href="/shows">Go Back</a>
+        <form action="/shows/{{show.id}}/process_edit" method="POST">
+        {%csrf_token%}
+            <label for="title">Title</label>
+            <input type="text" id="title" name="title" value="{{show.title}}">
+            <label for="network">Network</label>
+            <input type="text" id="network" name="network" value="{{show.network}}">
+            <label for="release_date">Release Date</label>
+            <input type="date" id="release_date" name="release_date" value={{show.release_date|date:"Y-m-d"}}>
+            <label for="desc">Description</label>
+            <input type="text" id="desc" name="desc" value="{{show.desc}}">
+            <a href="/shows/{{show.id}}/process_edit"><button>Update</button></a>
+        </form>
+        <a href="/shows/{{show.id}}">Go to Show</a>
+    </div>
+</body>
+</html>
