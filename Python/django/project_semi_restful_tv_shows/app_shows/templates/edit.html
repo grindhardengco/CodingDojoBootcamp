@@ -25,6 +25,9 @@
             <input type="text" id="desc" name="desc" value="{{show.desc}}">
             <a href="/shows/{{show.id}}/process_edit"><button>Update</button></a>
         </form>
+        {%for message in messages%}
+        <p>{{message}}</p>
+        {%endfor%}
         <a href="/shows/{{show.id}}">Go to Show</a>
     </div>
 </body>

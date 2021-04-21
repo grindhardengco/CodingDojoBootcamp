@@ -9,4 +9,5 @@ urlpatterns = [
     path('shows/<int:show_id>/destroy', views.destroy),
     path('shows/new', views.new),
     path('shows/process_new', views.process_new),
+    path('', views.home),
 ]

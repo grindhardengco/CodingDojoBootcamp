@@ -30,6 +30,10 @@
                 <input type="text" id="desc" name="desc">
                 <br>
                 <a href="/shows/process_new"><button>Create</button></a>
+                {%for message in messages%}
+                <p>{{message}}</p>
+                {%endfor%}
+
             </div>
         </form>
     </div>
