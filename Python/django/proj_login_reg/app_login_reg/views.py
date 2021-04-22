@@ -25,7 +25,8 @@ def register(request):
     user = User.objects.get(email = request.POST['email'])
     request.session['user_id'] = user.id
     request.session['user_name'] = user.first_name
-    return redirect('/success_register')
+    messages.success(request, "Thank you for registering!")
+    return redirect('/')
 
 def success_reg(request):
     if 'user_id' not in request.session:
@@ -52,7 +53,7 @@ def login(request):
     return redirect('/success_login')
 
 
-def success_login(request, user_id):
+def success_login(request):
     if 'user_id' not in request.session:
         messages.error(request, "Please log in to view this page.")
         return redirect('/')
