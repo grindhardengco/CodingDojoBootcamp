@@ -61,7 +61,7 @@ console.log(isPalindrome("RacecaR"))
 //     }
 // }
 
-// Ryan's function
+// RYAN'S FUNCTION
 function longestPalindrome(input) {
     if (input.length == 0) {
       return "";
