@@ -41,13 +41,12 @@ function userLanguages(users){
         output += `${users[i].fname} ${users[i].lname} knows ${language_output}.\n` 
         
         let interests_output = ''
-        for (k=0; k<Object.keys(users[i].interests).length-1; k++){
-            // console.log(Object.keys(users[i].interests))
-            for (l=0; l<users[i].interests[Object.keys(users[i].interests)[k]].length-1; l++){
-                // console.log(users[i].interests[Object.keys(users[i].interests)[k]][l])
+        for (k=0; k<Object.keys(users[i].interests).length; k++){
+            for (l=0; l<users[i].interests[Object.keys(users[i].interests)[k]].length; l++){
                 interests_output += `${users[i].interests[Object.keys(users[i].interests)[k]][l]}, `
             }
         }
+
         //Output all interests to 'interests_output' EXCEPT the last [l] of the last [k].  
         //The last [k] will output all interests except the last [l]. (Loop again)
         //Then the last...

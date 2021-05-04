@@ -1,14 +1,13 @@
+//INCOMPLETE
 function insertionSort(arr){
     for(i=1; i<arr.length; i++){
         temp = arr[i]
-        if (arr[i] - arr[i-1]){
-            
-            for (j=i; j>=0; j--){
-                if(temp < arr[i-1]){
-                    arr[j] = arr[j-1]
-                }
-                arr[j] = temp
+        for (j=i; j>=0; j--){
+            if(temp < arr[j-1]){
+                arr[j] = arr[j-1]
+
             }
+            arr[j] = temp
         }
 
         
@@ -17,4 +16,4 @@ function insertionSort(arr){
     return arr
 }
 
-console.log(insertionSort([1,1,2,1,1]))
+console.log(insertionSort([9,8,7,6]))
