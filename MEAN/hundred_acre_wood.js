@@ -67,12 +67,55 @@ bees.west = winnie;
 piglet.east = winnie;
 winnie.south = tigger;
 
+var message = ''
+
+function move(direction){
+    if (direction == "north"){
+        if(player.location.north == undefined){
+            message = "You can NEVER leave!"
+            return message;
+        }
+        player.location = player.location.north;
+        message = `You are at the home of ${player.location.character}.`
+        return message;
+    }
+    else if (direction == "south"){
+        if(player.location.south == undefined){
+            message = "You can NEVER leave!"
+            return message;
+        }
+        player.location = player.location.south;
+        message = `You are at the home of ${player.location.character}.`
+        return message;
+    }
+    else if (direction == "west"){
+        if(player.location.west == undefined){
+            message = "You can NEVER leave!"
+            return message;
+        }
+        player.location = player.location.west;
+        message = `You are at the home of ${player.location.character}.`
+        return message;
+    }
+    else if (direction == "east"){
+        if(player.location.east == undefined){
+            message = "You can NEVER leave!"
+            return message;
+        }
+        player.location = player.location.east;
+        message = `You are at the home of ${player.location.character}.`
+        return message;
+    }
+}
+
 var player = {
     location: robin,
 };
 
-function move(direction){
-    if (direction == "north"){
-        player.location = north;
-    }
-}
+console.log(player.location.character)
+console.log(move("north"))
+console.log(move("south"))
+console.log(move("south"))
+console.log(move("south"))
+console.log(move("south"))
+console.log(move("south"))
