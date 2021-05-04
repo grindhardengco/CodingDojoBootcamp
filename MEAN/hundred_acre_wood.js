@@ -42,28 +42,37 @@ var heffalumps = {
     character: "Heffalumps",
 };
 
-north.tigger = winnie;
-west.winnie = piglet;
-east.winnie = bees;
-north.piglet = owl;
-east.owl = robin;
-north.winnie = robin;
-north.bees = rabbit;
-east.robin = rabbit;
-east.rabbit = gopher;
-north.robin = kanga;
-north.kanga = eeyore;
-east.eeyore = heffalumps;
-west.heffalumps = eeyore;
-south.eeyore = kanga;
-south.kanga = robin;
-west.gopher = rabbit;
-west.rabbit = robin;
-west.robin = owl;
-south.owl = piglet;
-south.robin = winnie;
-south.rabbit = bees;
-west.bees = winnie;
-east.piglet = winnie;
-south.winnie = tigger;
+tigger.north = winnie;
+winnie.west= piglet;
+winnie.east = bees;
+piglet.north = owl;
+owl.east = robin;
+winnie.north = robin;
+bees.north = rabbit;
+robin.east = rabbit;
+rabbit.east = gopher;
+robin.north = kanga;
+kanga.north = eeyore;
+eeyore.east = heffalumps;
+heffalumps.west = eeyore;
+eeyore.south = kanga;
+kanga.south = robin;
+gopher.west = rabbit;
+rabbit.west = robin;
+robin.west = owl;
+owl.south = piglet;
+robin.south = winnie;
+rabbit.south = bees;
+bees.west = winnie;
+piglet.east = winnie;
+winnie.south = tigger;
 
+var player = {
+    location: robin,
+};
+
+function move(direction){
+    if (direction == "north"){
+        player.location = north;
+    }
+}
