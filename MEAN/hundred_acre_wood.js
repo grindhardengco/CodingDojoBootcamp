@@ -153,10 +153,7 @@ var player = {
                 console.log(`Welcome to Carino de Winnie!\n  See if you can get the honey and deliver it to Winnie.\n  The honey is located at ${mission_start.character}'s house.`);
                 return mission_start;
             },
-    pickup: function (mission_start){
-                // console.log(player.location);
-                console.log("******************")
-                console.log(mission_start);
+    pickup: function (){
                 if (player.location == mission_start){
                     player.honey = true;
                     console.log("You picked up the honey!  Try to bring it to Winnie and drop it off.")
@@ -193,7 +190,7 @@ function drop(){
     }
 }
 
-player.mission()
+var mission_start = player.mission()
 player.pickup()
 // move("north")
 // move("south")
