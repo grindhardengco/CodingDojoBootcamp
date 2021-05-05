@@ -133,6 +133,8 @@ function move(direction){
     return player.location.greet();
 }
 
+//The mission and pickup functions are inside the player variable because I had trouble getting the pickup function to receive the mission_start variable.  
+//Now that is resolved I haven't moved them back outside. 
 var player = {
     location: robin,
     honey: false,
@@ -166,19 +168,6 @@ var player = {
 
     
 };
-
-// function pickup(){
-//     // console.log(player.location);
-//     console.log("******************")
-//     console.log(mission_location[mission_start]);
-//     if (player.location == mission_location[mission_start]){
-//         player.honey = true;
-//         console.log("You picked up the honey!  Try to bring it to Winnie and drop it off.")
-//     }
-//     else{
-//         console.log("There is no honey here.  Keep looking...")
-//     }
-// }
 
 function drop(){
     if (player.honey == true && player.location == winnie){
