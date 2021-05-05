@@ -1,45 +1,78 @@
 var tigger = {
     character: "Tigger",
+    greet: function(){
+            console.log("The wonderful thing about Tiggers is that Tiggers are a wonferful thing! Hoo, hoo!")
+            },
 };
 
 var piglet = {
     character: "Piglet",
+    greet: function(){
+            console.log("Oh d-d-d-d-dear!")
+            },
 };
 
 var winnie = {
     character: "Winnie the Pooh",
+    greet: function(){
+           console.log("Oh... bother!")
+            },
 };
 
 var bees = {
     character: "Bees",
+    greet: function(){
+            console.log("BZZZZZZZZZ")
+            },
 };
 
 var owl = {
     character: "Owl",
+    greet: function(){
+            console.log("Is it time to wake up?  Nope?  Zzzzzzz...")
+            },
 };
 
 var robin = {
     character: "Christopher Robin",
+    greet: function(){
+            console.log("Rats!")
+            },
 };
 
 var rabbit = {
     character: "Rabbit",
+    greet: function(){
+            console.log("I love carrots!")
+            },
 };
 
 var gopher = {
     character: "Gopher",
+    greet: function(){
+            console.log("The farmer poisoned me again...")
+            },
 };
 
 var kanga = {
     character: "Kanga",
+    greet: function(){
+            console.log("Krikey!!")
+            },
 };
 
 var eeyore = {
     character: "Eeyore",
+    greet: function(){
+            console.log("Nobody loves, everybody hates me, I'm gonna eat some wooooorms!")
+            },
 };
 
 var heffalumps = {
     character: "Heffalumps",
+    greet: function(){
+            console.log("What in the world are we?  (I don't remember this part of WTP.)")
+            },
 };
 
 tigger.north = winnie;
@@ -67,55 +100,104 @@ bees.west = winnie;
 piglet.east = winnie;
 winnie.south = tigger;
 
-var message = ''
-
 function move(direction){
     if (direction == "north"){
         if(player.location.north == undefined){
-            message = "You can NEVER leave!"
-            return message;
+            console.log("You can NEVER leave!")
+            return false;
         }
         player.location = player.location.north;
-        message = `You are at the home of ${player.location.character}.`
-        return message;
     }
     else if (direction == "south"){
         if(player.location.south == undefined){
-            message = "You can NEVER leave!"
-            return message;
+            console.log("You can NEVER leave!")
+            return false;
         }
         player.location = player.location.south;
-        message = `You are at the home of ${player.location.character}.`
-        return message;
     }
     else if (direction == "west"){
         if(player.location.west == undefined){
-            message = "You can NEVER leave!"
-            return message;
+            console.log("You can NEVER leave!")
+            return false;
         }
         player.location = player.location.west;
-        message = `You are at the home of ${player.location.character}.`
-        return message;
     }
     else if (direction == "east"){
         if(player.location.east == undefined){
-            message = "You can NEVER leave!"
-            return message;
+            console.log("You can NEVER leave!")
+            return false;
         }
         player.location = player.location.east;
-        message = `You are at the home of ${player.location.character}.`
-        return message;
     }
+    console.log(`You are at the home of ${player.location.character}.`)
+    return player.location.greet();
 }
 
 var player = {
     location: robin,
+    honey: false,
+    mission: function (){
+                var mission_location = {
+                    1: tigger,
+                    2: piglet,
+                    3: owl,
+                    4: robin,
+                    5: rabbit,
+                    6: gopher,
+                    7: kanga,
+                    8: eeyore,
+                    9: heffalumps,
+                    10: bees,
+                };
+                var mission_start = mission_location[Math.floor(Math.random()*9)+1];
+                console.log(`Welcome to Carino de Winnie!\n  See if you can get the honey and deliver it to Winnie.\n  The honey is located at ${mission_start.character}'s house.`);
+                return mission_start;
+            },
+    pickup: function (mission_start){
+                // console.log(player.location);
+                console.log("******************")
+                console.log(mission_start);
+                if (player.location == mission_start){
+                    player.honey = true;
+                    console.log("You picked up the honey!  Try to bring it to Winnie and drop it off.")
+                }
+                else{
+                    console.log("There is no honey here.  Keep looking...")
+                }
+            },
+        
+
+    
 };
 
-console.log(player.location.character)
-console.log(move("north"))
-console.log(move("south"))
-console.log(move("south"))
-console.log(move("south"))
-console.log(move("south"))
-console.log(move("south"))
+// function pickup(){
+//     // console.log(player.location);
+//     console.log("******************")
+//     console.log(mission_location[mission_start]);
+//     if (player.location == mission_location[mission_start]){
+//         player.honey = true;
+//         console.log("You picked up the honey!  Try to bring it to Winnie and drop it off.")
+//     }
+//     else{
+//         console.log("There is no honey here.  Keep looking...")
+//     }
+// }
+
+function drop(){
+    if (player.honey == true && player.location == winnie){
+        player.honey = false;
+        console.log("Good job!  Winnie is self uncontrollably self-medicating so you can sneak out.")
+    }
+    else{
+        console.log(`This is ${player.location.character}'s house.\n  He doesn't like the high glycemic index of honey.\n Keep moving to Pooh's house.`)
+    }
+}
+
+player.mission()
+player.pickup()
+// move("north")
+// move("south")
+// move("south")
+// move("south")
+// move("south")
+// move("south")
