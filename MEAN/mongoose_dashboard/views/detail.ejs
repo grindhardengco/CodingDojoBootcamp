@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>This owl's name is <%= owl.name %>.</h1>
+    <p>This owl is <%= owl.height %> inches tall when full grown.</p>
+    <p>He/she likes to live in <%= owl.location %>.</p>
+    <p>He/she usually eats <%= owl.diet %></p>
+
+    <a href="/owl/edit/<%= owl._id %>"><button>Edit this owl's details</button></a>
+    <a href="/owl/destroy/<%= owl._id %>"><button>Remove this naughty owl</button></a>
+</body>
+</html>

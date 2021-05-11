@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Owls are the source of Real Ultimate Power</h1>
+    <p>See for yourself...</p>
+    <% for (owl of owls) { %>
+    <a href="/owl/<%= owl._id %>"><div>
+        <h3><%= owl.name %></h3>
+    </div></a>
+    <% } %>
+    <p>Click on an owl to learn more!</p>
+    <a href="owl/new"><button>Add a new owl</button></a>
+</body>
+</html>
