@@ -82,8 +82,6 @@ app.get('/owl/edit/:id', function(req, res) {
 //process owl edit
 app.post('/owl/:id', function(req,res){
     //update document from post 
-    console.log('*******************');
-    console.log(Owl.find({_id:req.params.id}));
     Owl.updateOne({_id:req.params.id},{$set:{
         name: req.body.name,
         height: req.body.height,
@@ -91,7 +89,6 @@ app.post('/owl/:id', function(req,res){
         diet: req.body.diet,
     }})
         .then(function(owldata){
-            console.log('****owl updated: ',owldata[0])
             res.redirect(`/owl/${req.params.id}`);
         })
         .catch(function(err){
