@@ -1,8 +1,5 @@
 const quotes = require('../controllers/quotes')
 
-const mongoose = require('mongoose'),
-    Quote = mongoose.model('Quote')
-
 //looks to modularized contollers
 module.exports = function(app){
     
@@ -20,6 +17,4 @@ module.exports = function(app){
     app.get('/quotes', function(req, res) {
         quotes.view_quotes(req,res);
     })
-       
- 
 }
