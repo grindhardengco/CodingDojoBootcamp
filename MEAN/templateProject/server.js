@@ -2,17 +2,21 @@ const express = require("express");
 const session = require("express-session");
 const app = express();
 const mongoose = require('mongoose');
+const flash = require('express-flash');
+const bcrypt = required('bcrypt');
 
 app.use(express.urlencoded({ extended: true }));
 app.use(session({secret:'whatisIanupto?'}))
 app.use(express.static(__dirname + "/static"));
+app.use(flash());
 mongoose.connect('mongodb://localhost/whatev_name_of_db',{useNewUrlParser:true});
 //change the name of the db & Schema!!!
 const WhatevSchema = new mongoose.Schema({
-    whatevkey1: String,
-    whatevkey2: Number,
-    created_at: {type: Date, default: Date.now},
-})    
+    whatevkey1: {type:String, required: true, minlength: 50},
+    whatevkey2: {type: Number, min: 1, max:150},
+    email: {type: String, required: true},
+    // created_at: {type: Date, default: Date.now},  this is redundant with timestamps but I wanted to preserve the reference
+}, {timestamps: true});
 const Whatev = mongoose.model('Whatev',WhatevSchema)
 
 app.set('views',__dirname + '/views');
@@ -46,13 +50,28 @@ app.post('/arouteforprocessingdata', function(req,res){
     var whatev = new Whatev();
     whatev.key1 = req.body.form_input_name1;
     whatev.key2 = req.body.form_input_name2;
-    whatev.save();
-        .then(function (whatevdata){
-            console.log('this promise was met and may have code following, especially to redirect', whatevdata);
-            res.redirect('/somewhere')
+    bcrypt.hash('somethingrandomornot',12)
+        .then(function(hashed_pw){
+            whatev.password = hased_pw;
+            whatev.save()
+            .then(function (whatevdata){
+                console.log('****registryofsomekindofdocumentincludingapassword successful: ', whatevdata);
+                res.redirect('/somewhere')
+            })
+            .catch(function(err){
+                console.log('err:',err);
+                for (var key in err.errors){
+                    req.flash('somethingrelavent', err.errors[key].message);
+                }
+                res.redirect('/away')
+            })
         })
         .catch(function(err){
             console.log('err:',err);
+            for (var key in err.errors){
+                req.flash('somethingrelavent', err.errors[key].message);
+            }
+            res.redirect('/away')
         })
 })
 
@@ -70,8 +89,12 @@ app.get('/thatssomeroute', function(req, res) {
         //or .then(function (whatevdata){res.render('thatejsfile',{whatev:whatevdata[0]})
         .catch(function (err){
             console.log(err);
+            for (var key in err.errors){
+                req.flash('somethingrelavent', err.errors[key].message);
+            }
+            res.redirect('/away')
         })
-    });
+    })
 })
 
 //render edit 
@@ -82,6 +105,10 @@ app.get('/whatev/edit/:id', function(req, res) {
         })
         .catch(function(err){
             console.log('****errors: ',err)
+            for (var key in err.errors){
+                req.flash('somethingrelavent', err.errors[key].message);
+            }
+            res.redirect('/away')
         })
 })
 
@@ -97,10 +124,12 @@ app.post('/whatev/:id', function(req,res){
         })
         .catch(function(err){
             console.log('****errors: ',err)
+            for (var key in err.errors){
+                req.flash('somethingrelavent', err.errors[key].message);
+            }
+            res.redirect('/away')
         })
-})
-
-
+});
 
 app.listen(8000, function() {
     console.log("listening to mantis shrimp on port 8000");
