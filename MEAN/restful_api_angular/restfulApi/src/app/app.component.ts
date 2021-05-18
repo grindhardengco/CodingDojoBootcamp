@@ -8,5 +8,10 @@ import { HttpService } from './http.service';
 })
 export class AppComponent {
   title = 'restfulApi';
-  constructor(private _httpService: HttpService){}
+  constructor(private _httpService: HttpService){
+    this._httpService.getTasks().subscribe(data=>{
+      
+      console.log(data)
+    })
+  }
 }

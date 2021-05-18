@@ -1,5 +1,6 @@
 const mongoose = require('mongoose'),
-    Api = mongoose.model('Api')
+    {Api} = require('../models/api')
+    //because of this require I do not need mongoose.js
 
 module.exports = {
     
@@ -10,10 +11,8 @@ module.exports = {
             })
             .catch(function(err){
                 console.log('err:',err);
-                for (var key in err.errors){
-                    req.flash('error(s) displaying all tasks: ', err.errors[key].message);
-                }
-                res.redirect('/')
+                res.json(err)
+                //use this for other Angular catches
             })
     },
 
@@ -24,10 +23,7 @@ module.exports = {
             })
             .catch(function(err){
                 console.log('err:',err);
-                for (var key in err.errors){
-                    req.flash('error(s) displaying single task: ', err.errors[key].message);
-                }
-                res.redirect('/')
+                res.json(err)
             })
     },
 
@@ -38,10 +34,7 @@ module.exports = {
             })
             .catch(function(err){
                 console.log('err:',err);
-                for (var key in err.errors){
-                    req.flash('error(s) creating a task: ', err.errors[key].message);
-                }
-                res.redirect('/')
+                res.json(err)
             })
     },
 
@@ -52,10 +45,7 @@ module.exports = {
             })
             .catch(function(err){
                 console.log('err:',err);
-                for (var key in err.errors){
-                    req.flash('error(s) displaying single task: ', err.errors[key].message);
-                }
-                res.redirect('/')
+                res.json(err)
             })
     },
 
@@ -66,10 +56,7 @@ module.exports = {
             })
             .catch(function(err){
                 console.log('err:',err);
-                for (var key in err.errors){
-                    req.flash('error(s) displaying single task: ', err.errors[key].message);
-                }
-                res.redirect('/')
+                res.json(err)
             })
     },
 }

@@ -5,6 +5,11 @@ module.exports = function(app){
     
     // render all tasks
     app.get('/', function(req, res) {
+//        apis.index(req,res)
+        //root route should do nothing
+    })
+
+    app.get('/tasks', function(req,res){
         apis.index(req,res)
     })
 
