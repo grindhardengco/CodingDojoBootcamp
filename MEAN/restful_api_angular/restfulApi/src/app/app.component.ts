@@ -9,13 +9,23 @@ import { HttpService } from './http.service';
 
 export class AppComponent implements OnInit {
   tasksList: Array<{title:string, descr:string, completed:boolean}> = [];
+  singleTask: any
+  //where do I learn about the above declarations of types??  Why is this done here as well as in httpService??
 
   constructor(private _httpService: HttpService){}
   
   ngOnInit () {
-    this.getTasksFromService(); 
+    this.singleTask = {}
   }
-  getTasksFromService(){
+
+  showTaskDetail(id: string){
+    this._httpService.getOneTask(id).subscribe(data=>{
+      this.singleTask = data
+      console.log(this.singleTask)
+    })
+  }
+
+  showAllTitles(){
     this._httpService.getTasks().subscribe(data=>{
       this.tasksList = data
     });

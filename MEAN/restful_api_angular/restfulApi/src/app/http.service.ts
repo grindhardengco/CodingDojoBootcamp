@@ -14,4 +14,7 @@ export class HttpService {
   getTasks(){
     return this._http.get<{title:string, descr:string, completed:boolean}[]>('/tasks');
   }
+  getOneTask(id){
+    return this._http.get('/' + id)
+  }
 }

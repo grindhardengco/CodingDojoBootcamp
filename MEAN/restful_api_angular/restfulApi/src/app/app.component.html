@@ -1,4 +1,16 @@
 <h1>RESTful Tasks API</h1>
+
+<button (click)="showAllTitles()">See all Tasks</button>
+
 <ul>
-  <li *ngFor="let task of tasksList">{{task.title}} - {{task.descr}}</li>
+  <li *ngFor="let task of tasksList">{{task.title}} 
+    <button (click)="showTaskDetail(task._id)">Show Detail</button>
+  </li>
 </ul>
+
+<div *ngIf="singleTask.title">
+  <h3>{{singleTask.title}}</h3>
+  <p>Description: {{singleTask.descr}}</p>
+  <p>Completed: {{singleTask.completed}}</p>
+  <p>Created: {{singleTask.createdAt}}</p>
+</div>
