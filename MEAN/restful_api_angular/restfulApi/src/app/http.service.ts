@@ -12,8 +12,6 @@ export class HttpService {
   constructor(private _http: HttpClient) {}
   
   getTasks(){
-    
-    return this._http.get('/tasks');
-
+    return this._http.get<{title:string, descr:string, completed:boolean}[]>('/tasks');
   }
 }
