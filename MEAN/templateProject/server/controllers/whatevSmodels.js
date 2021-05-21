@@ -4,7 +4,7 @@ const mongoose = require('mongoose'),
 module.exports = {
     
     index: function(req, res) {
-        res.render("index");
+        // res.render("index");
     },
 
     post_to_session: function(req, res) {

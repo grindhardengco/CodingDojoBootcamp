@@ -1,4 +1,4 @@
-const whatevs = require('../controller/whatevs')
+const whatevs = require('../controllers/whatevs')
 
 //looks to modularized controllers/logic;  note pluralized spelling
 module.exports = function(app){

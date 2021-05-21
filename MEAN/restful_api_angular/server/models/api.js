@@ -8,6 +8,6 @@ const ApiSchema = new mongoose.Schema({
 Api = mongoose.model('Api',ApiSchema)
 module.exports = {
     Api: Api,
-    ApiSchema: ApiSchema,
+    // ApiSchema: ApiSchema,
     //I don't have to export the Schema unless I am exporting multiple models, which would be done in separate files.
 }
