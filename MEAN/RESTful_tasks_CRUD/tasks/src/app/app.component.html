@@ -1,0 +1,27 @@
+<div id="new">
+  <h1>New Task</h1>
+  <form (submit)="create()">
+    Title: <br><input type="text" name="newTask.title" [(ngModel)]="newTask.title"><br>
+    Description: <br><input type="text" name="newTask.description" [(ngModel)]="newTask.description"><br>
+    <button>Add New Task</button>
+  </form>
+</div>
+
+<h1>Task List</h1>
+<div *ngFor="let task of taskList" class="task">
+  <div>
+    <h2>{{task.title}}</h2>
+    <p>{{task.description}}</p>
+  </div>
+  <div>
+    <button (click)="edit(task._id)">Edit</button>
+    <button (click)="destroy(task._id)">Delete</button>
+  </div>
+</div>
+<div *ngIf="editTask.title" id="edit">
+  <form (submit)=processEdit(editTask._id)>
+    Title: <br><input type="text" name="editTask.title" [(ngModel)]="editTask.title"><br>
+    Description: <br><input type="text" name="editTask.description" [(ngModel)]="editTask.description"><br>
+    <button>Subit Task Edit</button>
+  </form>
+</div>

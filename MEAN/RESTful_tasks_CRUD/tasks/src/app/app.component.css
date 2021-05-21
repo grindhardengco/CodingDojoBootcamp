@@ -1,0 +1,24 @@
+*{
+    /* border: 1px dotted red; */
+    margin: 10px;
+    padding: 0;
+}
+
+.task{
+    width: 300px;
+    border: 1px solid black;
+}
+
+.button{
+    /* align right & stack vertical */
+}
+
+#new{
+    width: 300px;
+}
+
+#edit{
+    width: 300px;
+    /* how to set input field to wrap? */
+    border: 2px dotted rgb(59, 59, 59);
+}
