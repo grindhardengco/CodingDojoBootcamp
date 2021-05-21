@@ -8,9 +8,5 @@
   </li>
 </ul>
 
-<div *ngIf="singleTask.title">
-  <h3>{{singleTask.title}}</h3>
-  <p>Description: {{singleTask.descr}}</p>
-  <p>Completed: {{singleTask.completed}}</p>
-  <p>Created: {{singleTask.createdAt}}</p>
-</div>
+<app-detail *ngIf="singleTask.title" [appDetailTask]="singleTask"></app-detail>
+
