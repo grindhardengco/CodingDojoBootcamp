@@ -1,0 +1,25 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#container_bottom{
+    width: 970px;
+    height: 435px;
+
+}
+
+    img{
+        max-height: 425px;
+        max-width: 435px;
+    }
+
+    #list{
+        display: inline-block;
+        overflow-y: scroll;
+    }
+
+    .rating{
+        border: 2px solid rgb(39, 39, 39);
+        margin: 5px;
+    }

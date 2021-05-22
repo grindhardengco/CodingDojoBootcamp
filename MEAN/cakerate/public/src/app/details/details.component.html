@@ -1,0 +1,11 @@
+<div id="container_bottom">
+    <h1>Baked by {{cakeDetail[0].baker}}</h1>
+    <img src="{{cakeDetail[0].url}}" alt="Ah cake by {{cakeDetail[0].baker}}">
+    <div id="list">
+        <p>Average Rating: {{calcAvg(cakeDetail[0])}} stars</p>
+        <div *ngFor="let rating of cakeDetail[0].ratings.reverse()" class="rating">
+            <p>{{rating.comment}}</p>
+            <p>{{rating.stars}} stars</p>
+        </div>
+    </div>
+</div>

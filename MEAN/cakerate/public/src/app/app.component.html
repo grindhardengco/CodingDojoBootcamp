@@ -1,0 +1,34 @@
+
+<h1>Rate my Cakes</h1>
+<div id="container_top">
+  
+  <div id="create">
+    <h4>Submit a cake to be rated</h4>
+    <form (submit)="create()">
+      Baker name: <br><input type="text" name="newCake.baker" [(ngModel)]="newCake.baker"><br>
+      Image url: <br><input type="text" name="newCake.url"  [(ngModel)]="newCake.url"><br>
+      <button>SUBMIT</button>
+    </form>
+  </div>
+
+  <div id="list">
+    <div class="ah_cake" *ngFor="let cake of cakeList">
+      <a (click)="details(cake._id)"><img src="{{cake.url}}" alt="{{cake.baker}}'s Cake"></a>
+      <form (submit)="rate(cake._id)">
+        Rate: <select name="newRating.stars" [(ngModel)]="newRating.stars">
+          <option value="5">5 stars</option>
+          <option value="4">4 stars</option>
+          <option value="3">3 stars</option>
+          <option value="2">2 stars</option>
+          <option value="1">1 stars</option>
+        </select><br>
+        Comment: <br><input type="text" name="newRating.comment" [(ngModel)]="newRating.comment"><br>
+        <button>Rate!</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<app-details *ngIf="rateList.length>0" [cakeDetail]="rateList">
+  
+</app-details>

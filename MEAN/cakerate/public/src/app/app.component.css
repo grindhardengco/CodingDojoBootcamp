@@ -1,0 +1,47 @@
+*{
+    margin: 0;
+    padding: 0;
+    /* border: 1px dotted red; */
+}
+
+#container_top{
+    width: 970px;
+    display: flex;
+    height: 435px;
+
+}
+
+    input{
+        width: 90%;
+        margin: 5px;
+    }
+
+    #create{
+        padding: 5px;
+        width: 300px;
+        border: 2px solid gray;
+    }
+        #create input{
+            margin: 5px;
+        }
+
+    #list{
+        overflow-y: scroll;
+    }
+
+        .ah_cake{
+            border: 1px solid black;
+            height: 200px;
+            display: flex;
+        }
+
+        .ah_cake img{
+            max-height: 195px;
+            max-width: 300px;
+        }
+
+#container_bottom{
+    width: 970px;
+    display: flex;
+    height: 435px;
+}
