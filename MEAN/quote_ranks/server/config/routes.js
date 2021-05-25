@@ -19,8 +19,24 @@ module.exports = function(app){
     })
 
     app.post('/updateAuthor/:id',(req,res)=>{
-        console.log("route received req: ", req.body)
         authors.updateAuthor(req,res)
+    })
+
+    app.get('/listQuotes',(req,res)=>{
+        authors.listQuotes(req,res)
+    })
+    
+    app.post('/addQuote/:id',(req,res)=>{
+        authors.addQuote(req,res)
+    })
+
+    app.post('/updateVote/:id/:val', (req,res)=>{
+        authors.updateVote(req,res)
+    })
+
+    app.get('/deleteQuote/:id/:quoteid', (req,res)=>{
+        console.log("route received req.params: ",req.params)
+        authors.deleteQuote(req,res)
     })
     
     // app.post('/rate/:id',(req,res)=>{

@@ -8,7 +8,6 @@ export class HttpService{
   constructor(private _http: HttpClient) { }
   
   create(newCake){
-    //add ': any' ?
     return this._http.post('/create',newCake)  
   }
   
@@ -23,8 +22,4 @@ export class HttpService{
   details(id){
     return this._http.get<{rating: number, comment: string}[]>('/details/'+id)
   }
-  
-  
-  //methods to pass through reqs
-
 }

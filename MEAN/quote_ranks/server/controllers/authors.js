@@ -42,7 +42,6 @@ module.exports = {
     },
 
     updateAuthor: (req,res)=>{
-        console.log("updateAuthor incoming req.body: ",req.body)
         Author.updateOne({_id: req.params.id}, {$set:{name: req.body.name}})
             .then(data=>{
                 res.json(data)
@@ -53,6 +52,45 @@ module.exports = {
             })
     },
 
+    addQuote: (req,res)=>{
+        Author.updateOne({_id: req.params.id}, {$push:{quote: req.body}})
+            .then(data=>{
+                res.json(data)
+            })
+            .catch(err=>{
+                console.log("errors updating author: ",err)
+                res.json(err)
+            })            
+    },
+
+    updateVote: (req,res)=>{
+        Author.updateOne(
+            {_id: req.params.id}, 
+            {$set:{"quote.$[orderItem].vote": (parseInt(req.body.vote) + parseInt(req.params.val))}}, 
+            {arrayFilters: [{"orderItem._id": req.body._id}]
+        })
+        .then(data=>{
+            res.json(data)
+        })
+        .catch(err=>{
+            console.log("errors incrementing vote: ",err)
+            res.json(err)
+        })
+    },
+
+    deleteQuote: (req,res)=>{
+        console.log("model received req.params: ",req.params)
+        Author.updateOne(
+            {_id: req.params.id}, 
+            {$pull:{"quote": {"_id": req.params.quoteid}}}
+        )
+        .then(data=>{
+            res.json(data)
+        })
+        .catch(err=>{
+            res.json(err)
+        })
+    }
 
     // rate: (req,res)=>{
     //     var newRating = new Rating()

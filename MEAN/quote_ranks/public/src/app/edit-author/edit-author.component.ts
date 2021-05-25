@@ -21,7 +21,6 @@ export class EditAuthorComponent implements OnInit {
   
   fetchAuthor(id){
     this._httpService.fetchAuthor(id).subscribe(data=>{
-      console.log("fetchAuthor subscription came back with data: ",data)
       this.author = data
     })
   }
@@ -29,7 +28,6 @@ export class EditAuthorComponent implements OnInit {
   updateAuthor(){
     this._route.params.subscribe((params)=>{
       this._httpService.updateAuthor(params.id, this.author).subscribe(data=>{
-        console.log("updateAuthor subscription came back with: ",data)
         this._router.navigate(['/'])
       })
     })

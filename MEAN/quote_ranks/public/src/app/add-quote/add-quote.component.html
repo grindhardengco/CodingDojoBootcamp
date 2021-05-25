@@ -1,1 +1,9 @@
-<p>add-quote works!</p>
+<a [routerLink]="['/']">Home</a>
+<p>Add a quote by {{author.name}}:</p>
+<div>
+    <form (submit)="addQuote(author._id)">
+        Quote: <input type="text" name="newQuote.text" [(ngModel)]="newQuote.text"><br>
+        <a [routerLink]="'/quote-list/'+author._id"><button>Cancel</button></a>
+        <button>Submit</button>
+    </form>
+</div>

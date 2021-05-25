@@ -9,8 +9,8 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   { path: '', component: AuthorListComponent },
   { path: 'new', component: AddAuthorComponent },
-  { path: 'quote-list', component: QuoteListComponent },
-  { path: 'add-quote', component: AddQuoteComponent },
+  { path: 'quote-list/:id', component: QuoteListComponent },
+  { path: 'add-quote/:id', component: AddQuoteComponent },
   { path: 'edit-author/:id', component: EditAuthorComponent },
   { path: '**', redirectTo: '' },
 ];

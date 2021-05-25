@@ -8,7 +8,6 @@ import { HttpService } from './http.service'
 })
 export class AppComponent {
   // newQuote: any
-  // quoteList: {someQuotes: string}[] = []
 
   constructor(private _httpService: HttpService){};
 
@@ -16,12 +15,6 @@ export class AppComponent {
     // this.newQuote = {quote:""}
   }
 
-  // editAuthor(id){
-
-  //     //this.newAuthor = {new:""}
-  //     //this.listAuthors()
-  //   })
-  // }
 
   // rate(id){
   //   this._httpService.rate(id, this.newRating).subscribe(data=>{

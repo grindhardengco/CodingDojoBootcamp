@@ -1,1 +1,19 @@
-<p>quote-list works!</p>
+<a [routerLink]="['/']">Home</a>
+<a [routerLink]="'/add-quote/'+quoteList._id">Add a quote</a>
+<p>Quotes by {{quoteList.name}}:</p>
+<table>
+    <tr>
+        <th>Quote</th>
+        <th>Votes</th>
+        <th>Actions available</th>
+    </tr>
+    <tr *ngFor="let quote of quoteList.quote">
+        <td>"{{quote.text}}"</td>
+        <td>{{quote.vote}}</td>
+        <td>
+            <button (click)="updateVote(quote, 1)">Vote up</button>
+            <button (click)="updateVote(quote, -1)">Vote down</button>
+            <button (click)="deleteQuote(quote._id)">Delete</button>
+        </td>
+    </tr>
+</table>

@@ -46,15 +46,42 @@ class Heap{
     }
 }
 
-var newHeap = new Heap;
-newHeap.add(5)
-newHeap.add(10)
-newHeap.add(7)
-newHeap.add(9)
-newHeap.add(3)
-newHeap.add(4)
-console.log(newHeap)
-newHeap.remove();
-console.log(newHeap)
+// var newHeap = new Heap;
+// newHeap.add(5)
+// newHeap.add(10)
+// newHeap.add(7)
+// newHeap.add(9)
+// newHeap.add(3)
+// newHeap.add(4)
+// console.log(newHeap)
+// newHeap.remove();
+// console.log(newHeap)
 
 var inputArr = [5,10,7,9,3,4]
+
+function heapify(inputArr){
+    var heap = new Heap;
+    for(i=0; i<inputArr.length; i++){
+        heap.add(inputArr[i])
+    }
+    console.log(heap)
+    return heap
+}
+
+heapify(inputArr)
+
+//THIS HEAPSORT() IS INCOMPLETE...!!!
+function heapSort(inputArr){
+    var heap = new Heap;
+    for(i=0; i<inputArr.length; i++){
+        heap.add(inputArr[i])
+    }
+    var outputArr = []
+    for(i=0; i<inputArr.length; i++){
+        outputArr.push(heap.remove())
+    }
+    console.log(outputArr)
+    return outputArr
+}
+
+heapSort(inputArr)

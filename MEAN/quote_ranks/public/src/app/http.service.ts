@@ -20,10 +20,21 @@ export class HttpService {
   }
 
   updateAuthor(id, author){
-    console.log("updateAuthor received id & author: ",id," ,", author)
     return this._http.post('/updateAuthor/'+id, author)
   }
 
+  addQuote(id, quote){
+    return this._http.post('/addQuote/'+id, quote)
+  }
+
+  updateVote(id, quote, val){
+    return this._http.post(`/updateVote/${id}/${val}`, quote)
+  }
+
+  deleteQuote(id, quoteId){
+    console.log("httpService received params: ",id,quoteId)
+    return this._http.get(`/deleteQuote/${id}/${quoteId}`)
+  }
 
   // rate(id, newRating){
   //   return this._http.post('/rate/'+id,newRating)
