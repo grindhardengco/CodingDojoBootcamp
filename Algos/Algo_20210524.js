@@ -103,7 +103,7 @@ function dec2Binary(int){
         int = int/2
         counter++;
     }
-    
+    touch 
 }
 
 var int = 35

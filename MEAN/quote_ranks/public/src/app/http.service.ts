@@ -35,12 +35,4 @@ export class HttpService {
     console.log("httpService received params: ",id,quoteId)
     return this._http.get(`/deleteQuote/${id}/${quoteId}`)
   }
-
-  // rate(id, newRating){
-  //   return this._http.post('/rate/'+id,newRating)
-  // }
-
-  // details(id){
-  //   return this._http.get<{rating: number, comment: string}[]>('/details/'+id)
-  // }
 }

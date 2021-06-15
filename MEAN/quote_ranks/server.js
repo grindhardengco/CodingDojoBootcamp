@@ -11,7 +11,6 @@ require('./server/config/mongoose.js')
 require('./server/models/author.js')
 require('./server/config/routes.js')(app)
 
-//IS THIS WORKING RIGHT??
 app.all("*", (req,res,next) => {
   res.sendFile(__dirname+"/public/dist/public/index.html")
 });

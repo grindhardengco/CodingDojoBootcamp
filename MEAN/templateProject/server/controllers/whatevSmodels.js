@@ -1,4 +1,4 @@
-const {Whatev, Whatev2} = require('./model/whatev.js'),
+const {Whatev, Whatev2} = require('../models/whatev.js'),
 
 module.exports = {
     

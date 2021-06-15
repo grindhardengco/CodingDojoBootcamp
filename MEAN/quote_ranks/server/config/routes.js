@@ -38,12 +38,4 @@ module.exports = function(app){
         console.log("route received req.params: ",req.params)
         authors.deleteQuote(req,res)
     })
-    
-    // app.post('/rate/:id',(req,res)=>{
-    //     cakes.rate(req,res)
-    // })
-
-    // app.get('/details/:id',(req,res)=>{
-    //     cakes.details(req,res)
-    // })
 }
